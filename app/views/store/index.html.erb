@@ -2,6 +2,9 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 <h1>Your Pragmatic Catalog</h1>
+<% if session[:counter] > 5 %>
+  <p style="text-align: right;"><%= "Count of visit store page is #{pluralize(session[:counter], 'time')}" %></p>
+<% end %>
 <% cache ['store', Product.latest] do %>
   <% @products.each do |product| %>
     <% cache ['entry', product] do %>
