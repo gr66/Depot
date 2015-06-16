@@ -7,7 +7,7 @@ class Cart < ActiveRecord::Base
       current_item.quantity += 1
     else
       current_item = line_items.build(product_id: product)
-      current_item.price = product.price
+      current_item.price = Product.find(product).price
     end
     current_item
   end
